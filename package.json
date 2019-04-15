@@ -1,0 +1,26 @@
+{
+  "name": "fetch-stihl-products",
+  "version": "1.0.0",
+  "description": "Fetches Stihl product data.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Stihl"
+  ],
+  "author": {
+    "name": "Austin Gordon",
+    "email": "gordon.austin2@gmail.com",
+    "url": "https://github.com/AustinLeeGordon"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.4",
+    "cheerio": "^1.0.0-rc.3",
+    "fetch-retry": "^2.0.0",
+    "he": "^1.2.0",
+    "xml2js": "^0.4.19"
+  }
+}
