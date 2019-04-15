@@ -18,12 +18,12 @@ async function getProductData(productUrls, options) {
         title = encode(title);
 
         // Product SKU
-        let sku = productUrl.split('/');
+        let sku = productUrl.split('/').filter(s => s);
         sku = sku[sku.length - 1];
 
         // Product description
         let description = $('#read-more .modal-body').text() || '';
-        description = description.replace(/\s\s+/g, '');
+        description = description.replace(/\s\s+/g, ' ').trim();
         description = encode(description);
 
         // Product images
