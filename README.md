@@ -1,6 +1,12 @@
 # fetch-stihl-products
 
+[![Current npm package version](https://img.shields.io/npm/v/fetch-stihl-products.svg)](https://www.npmjs.com/package/fetch-stihl-products) 
+
 Fetches Stihl product data.
+
+## Installing
+
+`npm install fetch-stihl-products`
 
 ## Usage
 
