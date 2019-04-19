@@ -35,18 +35,18 @@ async function getProductData(productUrls, options) {
             src = src.split('?')[0];
             images.push(url.slice(0, -1) + src);
         });
-        
-        if(images.length === 0) {
+
+        if (images.length === 0) {
             let src = $('#product-thumb-container img')[0].attribs.src;
             src = src.split('?')[0];
-            images.push(src);
+            images.push(url.slice(0, -1) + src);
         }
 
         // Product price
         let price = $('#product-price').text();
-        if(price === '' || price == 0) {
+        if (price === '' || price == 0) {
             price = null;
-        }else {
+        } else {
             price = Number(price.replace(/[\$,]/g, ''));
         }
 
