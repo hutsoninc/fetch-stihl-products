@@ -30,7 +30,7 @@ function parseString(str) {
 function getUrls(data) {
     let arr = [];
     for (let i = 0, len = data.urlset.url.length; i < len; i++) {
-        let url = data.urlset.url[i].loc[0]
+        let url = data.urlset.url[i].loc[0];
         if (!/\/$/.test(url)) {
             url += '/';
         }

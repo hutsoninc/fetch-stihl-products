@@ -35,10 +35,20 @@ async function getProductData(productUrls, options) {
             src = src.split('?')[0];
             images.push(url.slice(0, -1) + src);
         });
+        
+        if(images.length === 0) {
+            let src = $('#product-thumb-container img')[0].attribs.src;
+            src = src.split('?')[0];
+            images.push(src);
+        }
 
         // Product price
         let price = $('#product-price').text();
-        price = Number(price.replace(/\$/g, ''));
+        if(price === '' || price == 0) {
+            price = null;
+        }else {
+            price = Number(price.replace(/[\$,]/g, ''));
+        }
 
         // Product specs
         let specs = [];
