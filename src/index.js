@@ -13,14 +13,14 @@ const defaultOptions = {
 
 /**
  * 
- * @param {Array} products Product SKUs to keep
+ * @param {Array} skus Product SKUs to keep
  * @param {Object} options Options
  */
 
-async function fetchProducts(products, options = {}) {
+async function fetchProducts(skus, options = {}) {
     // If first argument is an object, use as options
-    if (products && typeof products === 'object' && !Array.isArray(products)) {
-        options = Object.assign(defaultOptions, products);
+    if (skus && typeof skus === 'object' && !Array.isArray(skus)) {
+        options = Object.assign(defaultOptions, skus);
     } else {
         options = Object.assign(defaultOptions, options);
     }
@@ -37,8 +37,8 @@ async function fetchProducts(products, options = {}) {
     let productUrls = getProductUrls(sitemap);
 
     // Filter products
-    if (products) {
-        productUrls = filterProducts(productUrls, products);
+    if (skus) {
+        productUrls = filterProducts(productUrls, skus);
     }
 
     // Get data

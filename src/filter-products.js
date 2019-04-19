@@ -1,9 +1,9 @@
 
-function filterProducts(productUrls, products) {
+function filterProducts(productUrls, skus) {
     return productUrls.filter(url => {
-        for (let i = 0; i < products.length; i++) {
-            let sku = products[i];
-            if (url.indexOf(sku) !== -1) {
+        for (let i = 0; i < skus.length; i++) {
+            let sku = skus[i];
+            if (url.indexOf(`/${sku}/`) !== -1) {
                 return true;
             }
         }
