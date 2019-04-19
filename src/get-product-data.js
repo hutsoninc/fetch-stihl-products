@@ -15,7 +15,9 @@ async function getProductData(productUrls, options) {
 
         // Product title
         let title = $('#productNameContainer span[itemprop=name]').text();
-        title = encode(title);
+        if (encodeEntities) {
+            title = encode(title);
+        }
 
         // Product SKU and categories
         let splitUrl = productUrl.split('/').filter(s => s);
@@ -26,7 +28,9 @@ async function getProductData(productUrls, options) {
         // Product description
         let description = $('#read-more .modal-body').text() || '';
         description = description.replace(/\s\s+/g, ' ').trim();
-        description = encode(description);
+        if (encodeEntities) {
+            description = encode(description);
+        }
 
         // Product images
         let images = [];
@@ -58,9 +62,17 @@ async function getProductData(productUrls, options) {
             el('td').map((i, e) => {
                 let text = cheerio.load(e).text();
                 if (i === 0) {
-                    spec.property = encode(text);
+                    if (encodeEntities) {
+                        spec.property = encode(text);
+                    } else {
+                        spec.property = text;
+                    }
                 } else {
-                    spec.data = encode(text);
+                    if (encodeEntities) {
+                        spec.data = encode(text);
+                    } else {
+                        spec.data = text;
+                    }
                 }
             });
             specs.push(spec);
@@ -82,12 +94,9 @@ async function getProductData(productUrls, options) {
 }
 
 function encode(str) {
-    if (encodeEntities) {
-        return he.encode(str, {
-            useNamedReferences: true,
-        });
-    }
-    return str;
+    return he.encode(str, {
+        useNamedReferences: true,
+    });
 }
 
 module.exports = getProductData;
