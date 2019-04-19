@@ -17,9 +17,11 @@ async function getProductData(productUrls, options) {
         let title = $('#productNameContainer span[itemprop=name]').text();
         title = encode(title);
 
-        // Product SKU
-        let sku = productUrl.split('/').filter(s => s);
-        sku = sku[sku.length - 1];
+        // Product SKU and categories
+        let splitUrl = productUrl.split('/').filter(s => s);
+        let sku = splitUrl.pop().toLowerCase();
+        let subcategory = splitUrl.pop().toLowerCase();
+        let category = splitUrl.pop().toLowerCase().toLowerCase();
 
         // Product description
         let description = $('#read-more .modal-body').text() || '';
@@ -57,6 +59,8 @@ async function getProductData(productUrls, options) {
         return {
             title,
             sku,
+            category,
+            subcategory,
             description,
             images,
             price,
