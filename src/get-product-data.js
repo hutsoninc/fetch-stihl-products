@@ -3,7 +3,7 @@ const fetch = require('fetch-retry');
 const he = require('he');
 
 async function getProductData(productUrls, options) {
-    let { url, headers, Promise } = options;
+    let { url, encodeEntities, headers, Promise } = options;
     let promises = productUrls.map(async productUrl => {
         let html = await fetch(productUrl, {
             method: 'GET',
@@ -82,9 +82,12 @@ async function getProductData(productUrls, options) {
 }
 
 function encode(str) {
-    return he.encode(str, {
-        useNamedReferences: true,
-    });
+    if (encodeEntities) {
+        return he.encode(str, {
+            useNamedReferences: true,
+        });
+    }
+    return str;
 }
 
 module.exports = getProductData;

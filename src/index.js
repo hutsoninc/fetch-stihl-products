@@ -9,6 +9,7 @@ const defaultOptions = {
     sitemap: 'sitemap.xml',
     headers: {},
     Promise,
+    encodeEntities: false
 };
 
 /**

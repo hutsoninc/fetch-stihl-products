@@ -62,6 +62,14 @@ Default: `require('bluebird')`
 
 Use a custom `Promise` implementation.
 
+##### encodeEntities
+
+Type: `boolean`
+
+Default: `false`
+
+Encode HTML entities with [`he`](https://github.com/mathiasbynens/he).
+
 ## Related
 
 - [stihl-scraper](https://github.com/hutsoninc/stihl-scraper) - Scrapes with Puppeteer. Slower and much more resource intensive.
