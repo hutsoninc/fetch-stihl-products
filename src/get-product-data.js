@@ -49,23 +49,26 @@ async function getProductData(productUrls, options) {
             let options = attributeListEl.querySelectorAll('option');
             if (options && options.length > 0) {
                 options.forEach(el => {
-                    variations.push({
-                        text: el.getAttribute('data-subtext').replace(/\s\s+/g, '').trim(),
-                        value: Number(el.getAttribute('value')),
-                    });
+                    let subtext = el.getAttribute('data-subtext');
+                    if (subtext) {
+                        variations.push({
+                            text: subtext.replace(/\s\s+/g, '').trim(),
+                            value: Number(el.getAttribute('value')),
+                        });
+                    }
                 });
             }
         }
         if (variations.length === 0) {
             // Product price
-            let price = document.querySelector('#product-price').textContent;
-            if (price === '') {
-                price = null;
-            } else {
-                price = Number(price.replace(/[\$,]/g, ''));
+            let price = document.querySelector('#product-price');
+            if (price) {
+                price = Number(price.textContent.replace(/[\$,]/g, ''));
                 if (price === 0) {
                     price = null;
                 }
+            } else {
+                price = null;
             }
 
             // Product variation
@@ -85,8 +88,6 @@ async function getProductData(productUrls, options) {
                     text: text || '',
                     value: price,
                 });
-            } else {
-                console.log(strongEls);
             }
         }
 
