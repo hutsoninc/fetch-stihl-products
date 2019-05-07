@@ -1,6 +1,6 @@
 {
   "name": "fetch-stihl-products",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Fetches Stihl product data.",
   "main": "src/index.js",
   "scripts": {
