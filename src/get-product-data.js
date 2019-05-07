@@ -49,11 +49,11 @@ async function getProductData(productUrls, options) {
             let options = attributeListEl.querySelectorAll('option');
             if (options && options.length > 0) {
                 options.forEach(el => {
-                    let subtext = el.getAttribute('data-subtext');
-                    if (subtext) {
+                    let text = el.innerHTML;
+                    if (text) {
                         variations.push({
-                            text: subtext.replace(/\s\s+/g, '').trim(),
-                            value: Number(el.getAttribute('value')),
+                            text: text.replace(/\s\s+/g, '').trim(),
+                            value: Number(el.value),
                         });
                     }
                 });
