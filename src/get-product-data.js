@@ -61,7 +61,7 @@ async function getProductData(productUrls, options) {
         }
         if (variations.length === 0) {
             // Product price
-            let price = document.querySelector('#product-price');
+            let price = document.querySelector('.price');
             if (price) {
                 price = Number(price.textContent.replace(/[\$,]/g, ''));
                 if (price === 0) {
