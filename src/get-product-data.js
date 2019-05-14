@@ -32,13 +32,19 @@ async function getProductData(productUrls, options) {
         document.querySelectorAll('#additional-images img').forEach(el => {
             let src = el.src;
             src = src.split('?')[0];
-            images.push(url.slice(0, -1) + src);
+            if (src.indexOf('https') === -1) {
+                src = url.slice(0, -1) + src;
+            }
+            images.push(src);
         });
 
         if (images.length === 0) {
             let src = document.querySelectorAll('#product-thumb-container img')[0].src;
             src = src.split('?')[0];
-            images.push(url.slice(0, -1) + src);
+            if (src.indexOf('https') === -1) {
+                src = url.slice(0, -1) + src;
+            }
+            images.push(src);
         }
 
         // Product variations
@@ -131,7 +137,10 @@ async function getProductData(productUrls, options) {
                 let alt = el.getAttribute('alt');
                 if (!alt || alt.toLowerCase() !== 'zoom') {
                     let src = el.getAttribute('data-original').split('?')[0];
-                    image = url.slice(0, -1) + src;
+                    if (src.indexOf('https') === -1) {
+                        src = url.slice(0, -1) + src;
+                    }
+                    image = src;    
                 }
             })
             features.push({
