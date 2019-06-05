@@ -72,7 +72,7 @@ Encode HTML entities with [`he`](https://github.com/mathiasbynens/he).
 
 ## Related
 
-- [stihl-scraper](https://github.com/hutsoninc/stihl-scraper) - Scrapes with Puppeteer. Slower and much more resource intensive.
+- [fetch-honda-products](https://github.com/hutsoninc/fetch-honda-products)
 
 ## License
 
