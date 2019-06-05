@@ -1,6 +1,6 @@
 # fetch-stihl-products
 
-[![Current npm package version](https://img.shields.io/npm/v/fetch-stihl-products.svg)](https://www.npmjs.com/package/fetch-stihl-products) 
+[![Current npm package version](https://img.shields.io/npm/v/fetch-stihl-products.svg)](https://www.npmjs.com/package/fetch-stihl-products) [![Build Status](https://travis-ci.com/hutsoninc/fetch-stihl-products.svg?branch=master)](https://travis-ci.com/hutsoninc/fetch-stihl-products)
 
 Fetches Stihl product data.
 
